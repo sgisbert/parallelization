@@ -25,10 +25,13 @@ namespace parallel
 
         private static async Task Process(int id)
         {
-            Stopwatch timer = new Stopwatch();
-            timer.Start();
-            Thread.Sleep(200);
-            Console.WriteLine($"Process {id}: {timer.Elapsed}");
+            await Task.Run(() =>
+            {
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
+                Thread.Sleep(200);
+                Console.WriteLine($"Process {id}: {timer.Elapsed}");
+            });
         }
     }
 }
