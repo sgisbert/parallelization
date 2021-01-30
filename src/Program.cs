@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Threading;
 using System.Diagnostics;
 using System;
@@ -12,10 +13,12 @@ namespace parallel
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
+            List<Task> tasks = new List<Task>();
             for (int i = 0; i < 10; i++)
             {
-                await Process(i);
+                tasks.Add(Process(i));
             }
+            Task.WaitAll(tasks.ToArray());
 
             Console.WriteLine($"Completed: {timer.Elapsed}");
         }
