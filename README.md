@@ -1,3 +1,5 @@
+![CodeQL](https://github.com/sgisbert/parallelization/workflows/CodeQL/badge.svg)
+
 # Parallelization
 
 [EN] Sample source code for the blog posts: 
