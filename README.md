@@ -1,3 +1,5 @@
+![CodeQL](https://github.com/sgisbert/parallelization/workflows/CodeQL/badge.svg)
+
 # Parallelization
 
 [EN] Sample source code for the blog posts: 
@@ -9,3 +11,5 @@
 
 * https://www.sergigisbert.com/blog/mejorar-el-rendimiento-con-funciones-asincronas-para-la-ejecucion-de-procesos-en-paralelo
 * https://www.sergigisbert.com/blog/utilizar-concurrentbag-para-almacenar-el-resultado-de-metodos-asincronos
+
+
