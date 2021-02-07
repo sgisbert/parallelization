@@ -31,16 +31,21 @@ namespace parallel
         {
             await Task.Run(() =>
             {
-                Stopwatch timer = new Stopwatch();
-                timer.Start();
-                Random random = new Random();
-                Thread.Sleep(200);
-
-                int number = random.Next(1,100);
-                cb.Add(number);
-
-                Console.WriteLine($"Process {id}: {timer.Elapsed}");
+                CoreProcess(id, cb);
             });
+        }
+
+        private static void CoreProcess(int id, ConcurrentBag<int> cb)
+        {
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            Random random = new Random();
+            Thread.Sleep(200);
+
+            int number = random.Next(1, 100);
+            cb.Add(number);
+
+            Console.WriteLine($"[{Thread.CurrentThread.ManagedThreadId}] Process {id}: {timer.Elapsed}");
         }
     }
 }
