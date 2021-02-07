@@ -25,6 +25,18 @@ namespace parallel
             Console.WriteLine();
             Console.WriteLine($"Result: {string.Join(",", cb)}");
             Console.WriteLine($"Completed: {timer.Elapsed}");
+            Console.WriteLine();
+
+            timer.Restart();
+            ConcurrentBag<int> cb2 = new ConcurrentBag<int>();
+            var sourceCollection = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            Parallel.ForEach(sourceCollection, (id) =>
+                                {
+                                    CoreProcess(id, cb2);
+                                });
+            Console.WriteLine($"Result: {string.Join(",", cb2)}");
+            Console.WriteLine($"Completed: {timer.Elapsed}");
+            Console.WriteLine();
         }
 
         private static async Task Process(int id, ConcurrentBag<int> cb)
